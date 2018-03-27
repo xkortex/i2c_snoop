@@ -43,6 +43,8 @@ public:
 class GenericIO {
 private:
     long timeout = 50;
+    uint8_t hexWidth = 16;
+    uint8_t hexCount = 0;
 public:
     GenericIO(void);
     // Stream API
@@ -66,6 +68,9 @@ public:
     int fprintf(IoDescriptor_t io, const char *format, ...);
     char holdup();
     size_t readin(uint8_t *buf, size_t bufsize);
+    void print_hex(int x);
+    void print_hex(uint8_t x);
+
 
 };
 

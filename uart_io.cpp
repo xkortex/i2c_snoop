@@ -207,3 +207,19 @@ size_t GenericIO::readin(uint8_t *buf, size_t bufsize) {
     buf[idx] = 0; // null terminator
     return idx;
 }
+
+void GenericIO::print_hex(int x) {
+    if (x & 0xFF00) {
+        print_hex((uint8_t) ((x & 0xFF00) >> 8));
+    }
+    print_hex((uint8_t) (x & 0xFF));
+}
+
+void GenericIO::print_hex(uint8_t x) {
+    if (hexCount == 0) {
+        printf("\n");
+    }
+    printf("%02x", x);
+    hexCount++;
+    hexCount &= (hexWidth - 1);
+}
