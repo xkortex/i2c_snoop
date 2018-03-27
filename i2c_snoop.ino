@@ -14,6 +14,7 @@ void setup() {
 
     delay(500);
     led_off();
+    io.printf("I2C SNOOPER\n~~~\n");
 }
 
 void loop() {
@@ -22,7 +23,7 @@ void loop() {
         data = Wire.read();
     }
     if (data) {
-        
+        io.print_hex(data);
     }
 }
 

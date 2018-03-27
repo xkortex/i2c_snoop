@@ -219,7 +219,7 @@ void GenericIO::print_hex(uint8_t x) {
     if (hexCount == 0) {
         printf("\n");
     }
-    printf("%02x", x);
+    printf("%02x ", x);
     hexCount++;
     hexCount &= (hexWidth - 1);
 }
